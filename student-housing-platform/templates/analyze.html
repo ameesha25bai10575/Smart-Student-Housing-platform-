@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>📄 Lease Analyzer</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button>Analyze</button>
+</form>
+
+{% if result %}
+<ul>
+{% for r in result %}
+<li>{{ r }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

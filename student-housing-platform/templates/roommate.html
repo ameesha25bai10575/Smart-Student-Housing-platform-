@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>👥 Roommate Matching</h2>
+
+<form method="post">
+    <input name="budget" placeholder="Budget (1-10)">
+    <input name="cleanliness" placeholder="Cleanliness (1-10)">
+    <input name="sleep" placeholder="Sleep (1-10)">
+    <button>Match</button>
+</form>
+
+{% if score %}
+<h3>Compatibility Score: {{ score }}</h3>
+{% endif %}
+
+{% endblock %}

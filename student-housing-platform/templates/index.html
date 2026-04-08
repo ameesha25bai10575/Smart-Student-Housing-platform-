@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>📍 Smart Listings Dashboard</h2>
+
+<div id="map"></div>
+
+<script id="data" type="application/json">
+{{ listings | tojson }}
+</script>
+
+<script src="/static/js/map_logic.js"></script>
+<script>
+initMap();
+</script>
+
+{% for l in listings %}
+<div class="card">
+    <h3>{{ l.title }}</h3>
+    <p>📍 {{ l.location }}</p>
+    <p>💰 ₹{{ l.price }}</p>
+    <p>⭐ Trust: {{ l.trust }}%</p>
+    <a href="/listing/{{ l.id }}">View Details</a>
+</div>
+{% endfor %}
+
+{% endblock %}
